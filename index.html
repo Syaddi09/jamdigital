@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container bg-primary">
+        <h1 class="mt-5 text-center text-white">Jam Digital</h1>
+        <div class="text-center">
+            <div class="display-4 text-white" id="clock">00:00:00</div>
+        </div>
+    </div>
+
+    <script>
+           //sebuah fungsi dalam JavaScript yang bertugas untuk mengupdate atau memperbarui tampilan jam digital dengan waktu saat inii
+           function updateClock() {
+
+
+            //kata kunci var. Variabel ini digunakan untuk menyimpan objek Date yang mewakili waktu saat ini pada saat fungsi ini dijalankan. new Date() adalah cara untuk membuat objek Date yang berisi informasi tentang waktu saat ini pada saat fungsi tersebut dipanggil. Ini termasuk tanggal, jam, menit, detik, dan milidetik saat ini.//
+            var now = new Date(); 
+
+            //akan menghasilkan variabel hours yang berisi string yang mewakili jam saat ini dalam format dua digit, baik itu "09" atau "11", tergantung pada nilai jam saat ini. Hal yang sama dilakukan untuk menit dan detik dalam jam digital.
+            var hours = String(now.getHours()).padStart(2, '0');
+            var minutes = String(now.getMinutes()).padStart(2, '0');
+            var seconds = String(now.getSeconds()).padStart(2, '0');
+
+
+            // Ini adalah baris di mana kita menggabungkan nilai jam (hours), menit (minutes), dan detik (seconds) menjadi satu string yang mewakili waktu dalam format "jam:menit:detik". Ini menggunakan string template (dengan tanda kutip kembali ) untuk menyisipkan nilai-nilai tersebut ke dalam string timeString`.  
+            var timeString = `${hours}:${minutes}:${seconds}`;
+
+            //baris ini digunakan untuk mengambil elemen HTML dengan ID "clock" menggunakan document.getElementById('clock'). Kemudian, kita mengatur properti textContent dari elemen tersebut dengan nilai dari timeString. Ini akan menggantikan teks yang ada di dalam elemen dengan waktu yang baru//
+            document.getElementById('clock').textContent = timeString;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           // Update jam setiap detik
+           //setInterval: Ini adalah metode JavaScript yang digunakan untuk menjadwalkan eksekusi ulang fungsi atau kode tertentu pada interval waktu tertentu.//
+           //fungsi updateClock() setiap detik untuk memperbarui tampilan jam digital//
+           //dengan nilai 1000, kita menjadwalkan eksekusi ulang fungsi updateClock() setiap 1000 milidetik atau setiap 1 detik.//
+          setInterval(updateClock, 1000);
+
+          // Memanggil updateClock() agar jam tampil saat halaman dimuat//
+          // ini akan menjalankan semua pernyataan yang ada dalam fungs
+          updateClock();
+    </script>
+
+    
+</body>
+</html>
